@@ -143,7 +143,13 @@ std::shared_ptr<intermediate> SimpleEvaluator::evaluate_aux(RPQTree *q) {
         result = SimpleEvaluator::join(leftResult, rightResult);
     }
 
-    evalCache[pathstr] = result;
+    uint32_t resultSize;
+    for (const auto& dests : *result) {
+        resultSize += dests.second.size();
+    }
+    if (resultSize < 10*graph->getNoVertices()) {
+        evalCache[pathstr] = result;
+    }
     return result;
 }
 
