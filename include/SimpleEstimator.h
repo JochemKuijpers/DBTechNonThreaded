@@ -8,7 +8,6 @@
 #include "Estimator.h"
 #include "SimpleGraph.h"
 
-#include <memory>
 #include <unordered_map>
 #include <unordered_set>
 
